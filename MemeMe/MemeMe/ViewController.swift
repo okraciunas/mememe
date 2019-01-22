@@ -55,8 +55,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     private func unsubscribeFromKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc private func keyboardWillShow(_ notification:Notification) {
@@ -102,17 +101,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         })
     }
     
+    private func toolbarIsHidden(_ hidden: Bool) {
+        topToolbar.isHidden = hidden
+        bottomToolbar.isHidden = hidden
+    }
+    
     private func generateMemedImage() -> UIImage {
-        topToolbar.isHidden = true
-        bottomToolbar.isHidden = true
+        toolbarIsHidden(true)
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        topToolbar.isHidden = false
-        bottomToolbar.isHidden = false
+        toolbarIsHidden(false)
         
         return memedImage
     }
@@ -135,6 +137,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: self.imagePickerView.image!, memedImage: self.generateMemedImage())
         
         let activityViewController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
+        activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
+            // todo
+        }
         present(activityViewController, animated: true, completion: nil)
     }
 }

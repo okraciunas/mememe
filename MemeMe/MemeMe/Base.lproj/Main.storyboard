@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="44" id="vPU-4o-zCF"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Share" id="dRS-L5-rRJ">
+                                    <barButtonItem systemItem="action" id="dRS-L5-rRJ">
                                         <connections>
                                             <action selector="saveMemeImage:" destination="BYZ-38-t0r" id="dwm-gZ-oFZ"/>
                                         </connections>
