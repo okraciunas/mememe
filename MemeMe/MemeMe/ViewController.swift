@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
-    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var topToolbar: UIToolbar!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
@@ -102,14 +103,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     private func generateMemedImage() -> UIImage {
-        toolbar.isHidden = true
+        topToolbar.isHidden = true
+        bottomToolbar.isHidden = true
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        toolbar.isHidden = false
+        topToolbar.isHidden = false
+        bottomToolbar.isHidden = false
         
         return memedImage
     }

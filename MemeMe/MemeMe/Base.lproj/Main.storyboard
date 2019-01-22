@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGU-fu-DQ8" userLabel="Top Toolbar">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qGU-fu-DQ8" userLabel="Top Toolbar">
+                                <rect key="frame" x="0.0" y="45" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="vPU-4o-zCF"/>
                                 </constraints>
@@ -95,11 +95,12 @@
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="FHP-CN-hyH" id="G40-07-QcI"/>
+                        <outlet property="bottomToolbar" destination="Bg0-xW-NVB" id="FT0-Np-9fq"/>
                         <outlet property="cameraButton" destination="887-3t-PEX" id="DiR-3r-VBA"/>
                         <outlet property="imagePickerView" destination="tDy-xs-w1y" id="1Sb-LJ-Cp9"/>
                         <outlet property="shareButton" destination="dRS-L5-rRJ" id="IW8-hi-otj"/>
-                        <outlet property="toolbar" destination="Bg0-xW-NVB" id="FT0-Np-9fq"/>
                         <outlet property="topTextField" destination="dB5-Ld-ZVj" id="8W4-Xn-fuE"/>
+                        <outlet property="topToolbar" destination="qGU-fu-DQ8" id="iu3-D3-Nlf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
