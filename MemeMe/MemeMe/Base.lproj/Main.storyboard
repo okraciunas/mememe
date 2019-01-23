@@ -18,10 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qGU-fu-DQ8" userLabel="Top Toolbar">
-                                <rect key="frame" x="0.0" y="45" width="414" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGU-fu-DQ8" userLabel="Top Toolbar">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="vPU-4o-zCF"/>
+                                    <constraint firstAttribute="height" constant="44" id="cv1-XO-McC"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem systemItem="action" id="dRS-L5-rRJ">
@@ -88,8 +88,8 @@
                             <constraint firstItem="FHP-CN-hyH" firstAttribute="bottom" secondItem="tDy-xs-w1y" secondAttribute="bottom" constant="-20" id="Vaj-Dg-QOy"/>
                             <constraint firstItem="FHP-CN-hyH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eTg-30-HJ5"/>
                             <constraint firstItem="qGU-fu-DQ8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fb6-LI-YO4"/>
-                            <constraint firstItem="qGU-fu-DQ8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hZz-fJ-xnu"/>
                             <constraint firstItem="qGU-fu-DQ8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sFh-z1-k2b"/>
+                            <constraint firstItem="qGU-fu-DQ8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="unK-cw-BQR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

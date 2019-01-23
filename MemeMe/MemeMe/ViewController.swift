@@ -138,7 +138,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let activityViewController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
-            // todo
+            
+            if completed {
+                // TODO
+            }
         }
         present(activityViewController, animated: true, completion: nil)
     }
