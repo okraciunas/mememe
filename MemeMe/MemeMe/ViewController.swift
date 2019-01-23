@@ -134,13 +134,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func saveMemeImage(_ sender: Any) {
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: self.imagePickerView.image!, memedImage: self.generateMemedImage())
+        let memedImage = self.generateMemedImage()
         
-        let activityViewController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
             
             if completed {
-                // TODO
+                let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imagePickerView.image!, memedImage: memedImage)
             }
         }
         present(activityViewController, animated: true, completion: nil)
