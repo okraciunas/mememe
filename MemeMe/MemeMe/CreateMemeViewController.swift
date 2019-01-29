@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var topToolbar: UIToolbar!
@@ -27,19 +27,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK - Override methods
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        subscribeToKeyboardNotifications()
-        
-        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        shareButton.isEnabled = false
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initTextField(textField: topTextField, label: "TOP")
         initTextField(textField: bottomTextField, label: "BOTTOM")
+        
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        shareButton.isEnabled = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -69,9 +69,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @objc private func keyboardWillHide(_ notification:Notification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
+        self.view.frame.origin.y = 0
     }
     
     // MARK - Initialize UI elements
@@ -94,11 +92,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             self.imagePickerView.image = image
+            self.shareButton.isEnabled = self.imagePickerView.image != nil
         }
         
-        dismiss(animated: true, completion: {
-            self.shareButton.isEnabled = self.imagePickerView.image != nil
-        })
+        dismiss(animated: true, completion: nil)
     }
     
     private func toolbarIsHidden(_ hidden: Bool) {
