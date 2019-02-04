@@ -113,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="308"/>
+            <point key="canvasLocation" x="990" y="349"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="js4-JY-mN9">
@@ -131,7 +131,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhc-Rl-rER" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2151" y="251"/>
+            <point key="canvasLocation" x="-2174" y="328"/>
         </scene>
         <!--Table-->
         <scene sceneID="Ayz-zC-zF6">
@@ -202,10 +202,42 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Ryq-D5-OBq" id="L1y-EB-BdK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tC3-xk-jOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-466.39999999999998" y="-18.440779610194905"/>
+        </scene>
+        <!--Detail Meme View Controller-->
+        <scene sceneID="GgM-6A-Iaq">
+            <objects>
+                <viewController storyboardIdentifier="DetailMeme" id="WDl-Hb-w0r" customClass="DetailMemeViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XLb-VR-g1M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mmm-bt-juI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mmm-bt-juI" firstAttribute="top" secondItem="tYz-fL-FhS" secondAttribute="top" id="LoD-xe-dr6"/>
+                            <constraint firstItem="mmm-bt-juI" firstAttribute="trailing" secondItem="tYz-fL-FhS" secondAttribute="trailing" id="VV4-ai-cYD"/>
+                            <constraint firstItem="mmm-bt-juI" firstAttribute="bottom" secondItem="tYz-fL-FhS" secondAttribute="bottom" id="hKh-23-KLN"/>
+                            <constraint firstItem="mmm-bt-juI" firstAttribute="leading" secondItem="tYz-fL-FhS" secondAttribute="leading" id="sN7-ME-cdR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tYz-fL-FhS"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="mmm-bt-juI" id="QPY-Kd-BDe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FCW-Ux-1uf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="270" y="349"/>
         </scene>
         <!--Sent Memes Collection View Controller-->
         <scene sceneID="qq1-oC-EoR">
@@ -253,7 +285,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButton" destination="qjJ-bL-QRl" id="vDe-sF-SZl"/>
                         <outlet property="flowLayout" destination="oeQ-CD-0dD" id="Soi-5A-qpD"/>
                     </connections>
                 </collectionViewController>

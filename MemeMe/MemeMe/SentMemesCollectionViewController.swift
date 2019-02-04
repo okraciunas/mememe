@@ -12,11 +12,10 @@ private let reuseIdentifier = "MemeCollectionCell"
 
 class SentMemesCollectionViewController: UICollectionViewController {
 
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var memes = [Meme]()
-    
-    @IBOutlet weak var addButton: UIBarButtonItem!
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +31,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.memes = self.appDelegate.memes
+        self.collectionView.reloadData()
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -47,16 +47,12 @@ class SentMemesCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    // override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Grab the DetailVC from Storyboard
-        // let detailController = self.storyboard!.instantiateViewController(withIdentifier: "VillainDetailViewController") as! VillainDetailViewController
+     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailMeme") as! DetailMemeViewController
+        detailVC.meme = self.memes[(indexPath as NSIndexPath).row]
         
-        // Populate view controller with data from the selected item
-        // detailController.villain = allVillains[(indexPath as NSIndexPath).row]
-        
-        // Present the view controller using navigation
-        // navigationController!.pushViewController(detailController, animated: true)
-    // }
+        self.navigationController?.pushViewController(detailVC, animated: true)
+     }
     
     @IBAction func showCreateMemeView(_ sender: UIBarButtonItem) {
         let createMemeVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateMeme") as! CreateMemeViewController
