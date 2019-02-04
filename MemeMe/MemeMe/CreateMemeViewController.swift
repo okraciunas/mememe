@@ -117,6 +117,10 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.cancel()
+    }
+    
+    private func cancel() {
         dismiss(animated: true, completion: nil)
     }
     
@@ -138,8 +142,16 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
             
             if completed {
                 let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imagePickerView.image!, memedImage: memedImage)
+                
+                let object = UIApplication.shared.delegate
+                let appDelegate = object as! AppDelegate
+                appDelegate.memes.append(meme)
             }
         }
         present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelCreateMeme(_ sender: UIBarButtonItem) {
+        self.cancel()
     }
 }
