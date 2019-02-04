@@ -148,6 +148,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
                 appDelegate.memes.append(meme)
             }
         }
+        
         present(activityViewController, animated: true, completion: nil)
     }
     

@@ -12,6 +12,7 @@ private let reuseIdentifier = "MemeCollectionCell"
 
 class SentMemesCollectionViewController: UICollectionViewController {
 
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var memes = [Meme]()
     
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -26,9 +27,11 @@ class SentMemesCollectionViewController: UICollectionViewController {
         self.flowLayout.minimumInteritemSpacing = space
         self.flowLayout.minimumLineSpacing = space
         self.flowLayout.itemSize = CGSize(width: dimension, height: dimension)
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.memes = appDelegate.memes
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.memes = self.appDelegate.memes
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,16 +47,16 @@ class SentMemesCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    // override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Grab the DetailVC from Storyboard
-//        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "VillainDetailViewController") as! VillainDetailViewController
+        // let detailController = self.storyboard!.instantiateViewController(withIdentifier: "VillainDetailViewController") as! VillainDetailViewController
         
-        //Populate view controller with data from the selected item
-//        detailController.villain = allVillains[(indexPath as NSIndexPath).row]
+        // Populate view controller with data from the selected item
+        // detailController.villain = allVillains[(indexPath as NSIndexPath).row]
         
         // Present the view controller using navigation
-//        navigationController!.pushViewController(detailController, animated: true)
-    }
+        // navigationController!.pushViewController(detailController, animated: true)
+    // }
     
     @IBAction func showCreateMemeView(_ sender: UIBarButtonItem) {
         let createMemeVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateMeme") as! CreateMemeViewController

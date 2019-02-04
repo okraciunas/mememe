@@ -6,6 +6,8 @@
 	<string>Olar! Deixa nóis salvar esse meme fera nesse iPhonão?</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Olar! Gostaria de salvar os memes que você criou!</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
