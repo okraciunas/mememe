@@ -11,6 +11,7 @@ import UIKit
 class SentMemesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var messageText: UILabel!
     
     private let reuseIdentifier = "MemeCollectionCell"
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -19,12 +20,30 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showTabBarController(memes: self.appDelegate.memes)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         self.memes = self.appDelegate.memes
+        self.showTabBarController(memes: self.memes)
         self.tableView.reloadData()
+    }
+    
+    // MARK - Mostrando/escondendo mensagem inicial
+    
+    private func showTabBarController(memes: [Meme]) {
+        if self.memes.count == 0 {
+            self.tableView.isHidden = true
+            self.tabBarController?.tabBar.isHidden = true
+            self.messageText.isHidden = false
+        }
+        else {
+            self.tableView.isHidden = false
+            self.tabBarController?.tabBar.isHidden = false
+            self.messageText.isHidden = true
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,6 +61,8 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("didSelectRowAt")
+        
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailMeme") as! DetailMemeViewController
         detailVC.meme = self.memes[(indexPath as NSIndexPath).row]
         

@@ -56,7 +56,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     @IBAction func showCreateMemeView(_ sender: UIBarButtonItem) {
         let createMemeVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateMeme") as! CreateMemeViewController
-        
         self.present(createMemeVC, animated: true, completion: nil)
     }
 }

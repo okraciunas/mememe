@@ -18,6 +18,7 @@
 		1AED158221F5E5A700688C57 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AED158121F5E5A700688C57 /* Meme.swift */; };
 		1AF2D19B2208CAC900331D7E /* SentMemesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF2D19A2208CAC900331D7E /* SentMemesTableViewController.swift */; };
 		1AF2D19D2208F3DA00331D7E /* DetailMemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF2D19C2208F3DA00331D7E /* DetailMemeViewController.swift */; };
+		1AF2D1A02209083E00331D7E /* UIImageView+ContentRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF2D19F2209083E00331D7E /* UIImageView+ContentRect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		1AED158121F5E5A700688C57 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		1AF2D19A2208CAC900331D7E /* SentMemesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemesTableViewController.swift; sourceTree = "<group>"; };
 		1AF2D19C2208F3DA00331D7E /* DetailMemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMemeViewController.swift; sourceTree = "<group>"; };
+		1AF2D19F2209083E00331D7E /* UIImageView+ContentRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ContentRect.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				1ADD202F21EFFD24006C9818 /* Assets.xcassets */,
 				1ADD203121EFFD24006C9818 /* LaunchScreen.storyboard */,
 				1ADD202C21EFFD23006C9818 /* Main.storyboard */,
+				1AF2D19F2209083E00331D7E /* UIImageView+ContentRect.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				1AED158221F5E5A700688C57 /* Meme.swift in Sources */,
 				1A4C82922207BFCF003266CE /* SentMemeCollectionViewCell.swift in Sources */,
 				1ADD202921EFFD23006C9818 /* AppDelegate.swift in Sources */,
+				1AF2D1A02209083E00331D7E /* UIImageView+ContentRect.swift in Sources */,
 				1AD69AD121F515FD00FD7F98 /* MessageTextFieldDelegate.swift in Sources */,
 				1AF2D19D2208F3DA00331D7E /* DetailMemeViewController.swift in Sources */,
 			);
